@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LinguaAI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Navigation -->
+    <nav class="navbar dashboard-navbar">
+        <div class="nav-container">
+            <a href="dashboard.html" class="nav-logo">
+                <span class="logo-icon">🌍</span> LinguaAI
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#profile" class="nav-link">👤 Profile</a></li>
+                <li class="nav-item"><a href="#settings" class="nav-link">⚙️ Settings</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link btn-logout" onclick="handleLogout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="user-profile">
+                <div class="user-avatar">JD</div>
+                <h3 id="userName">John Doe</h3>
+                <p id="userLevel">Beginner</p>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#overview" class="menu-item active" onclick="switchTab('overview')">
+                    <span>📊</span> Overview
+                </a>
+                <a href="#courses" class="menu-item" onclick="switchTab('courses')">
+                    <span>📚</span> My Courses
+                </a>
+                <a href="#lessons" class="menu-item" onclick="switchTab('lessons')">
+                    <span>🎯</span> Lessons
+                </a>
+                <a href="#practice" class="menu-item" onclick="switchTab('practice')">
+                    <span>🗣️</span> Practice
+                </a>
+                <a href="#achievements" class="menu-item" onclick="switchTab('achievements')">
+                    <span>🏆</span> Achievements
+                </a>
+                <a href="#statistics" class="menu-item" onclick="switchTab('statistics')">
+                    <span>📈</span> Statistics
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Tab -->
+            <section id="overview" class="tab-content active">
+                <h1>Welcome Back, John! 👋</h1>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🔥</div>
+                        <div class="stat-content">
+                            <h3>Current Streak</h3>
+                            <p class="stat-value">12 days</p>
+                            <small>Keep it going!</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <h3>Time Learning</h3>
+                            <p class="stat-value">24h 30m</p>
+                            <small>This month</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📖</div>
+                        <div class="stat-content">
+                            <h3>Lessons Done</h3>
+                            <p class="stat-value">47</p>
+                            <small>Total</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-content">
+                            <h3>Points Earned</h3>
+                            <p class="stat-value">2,340</p>
+                            <small>XP</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-row">
+                    <div class="content-card wide">
+                        <h2>Your Progress</h2>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span>Spanish Basics</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span>French Vocabulary</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span>Japanese Hiragana</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h2>Quick Actions</h2>
+                        <button class="quick-btn" onclick="startLesson()">
+                            <span>▶️</span> Start Lesson
+                        </button>
+                        <button class="quick-btn" onclick="practiceVocab()">
+                            <span>🎤</span> Practice Speaking
+                        </button>
+                        <button class="quick-btn" onclick="takeQuiz()">
+                            <span>❓</span> Take Quiz
+                        </button>
+                        <button class="quick-btn" onclick="reviewCards()">
+                            <span>🔄</span> Review Cards
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Courses Tab -->
+            <section id="courses" class="tab-content">
+                <h1>My Courses</h1>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Spanish Basics</h3>
+                            <span class="course-level">Beginner</span>
+                        </div>
+                        <p class="course-desc">Learn essential Spanish vocabulary and grammar</p>
+                        <div class="course-progress">
+                            <div class="progress-bar small">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <span class="progress-text">65% Complete</span>
+                        </div>
+                        <button class="btn btn-secondary" onclick="continueCourse('spanish')">Continue</button>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>French Conversations</h3>
+                            <span class="course-level">Intermediate</span>
+                        </div>
+                        <p class="course-desc">Master everyday conversations in French</p>
+                        <div class="course-progress">
+                            <div class="progress-bar small">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <span class="progress-text">45% Complete</span>
+                        </div>
+                        <button class="btn btn-secondary" onclick="continueCourse('french')">Continue</button>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Japanese Hiragana</h3>
+                            <span class="course-level">Beginner</span>
+                        </div>
+                        <p class="course-desc">Learn Japanese writing systems and characters</p>
+                        <div class="course-progress">
+                            <div class="progress-bar small">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                            <span class="progress-text">80% Complete</span>
+                        </div>
+                        <button class="btn btn-secondary" onclick="continueCourse('japanese')">Continue</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lessons Tab -->
+            <section id="lessons" class="tab-content">
+                <h1>Lesson Schedule</h1>
+                <div class="lessons-list">
+                    <div class="lesson-item">
+                        <div class="lesson-date">Today</div>
+                        <div class="lesson-details">
+                            <h3>Spanish: Present Tense Verbs</h3>
+                            <p>Duration: 10 minutes | Difficulty: Intermediate</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="startLesson()">Start</button>
+                    </div>
+                    <div class="lesson-item">
+                        <div class="lesson-date">Tomorrow</div>
+                        <div class="lesson-details">
+                            <h3>French: Food & Restaurant Vocabulary</h3>
+                            <p>Duration: 15 minutes | Difficulty: Beginner</p>
+                        </div>
+                        <button class="btn btn-secondary" onclick="alert('Unlock tomorrow!')">View</button>
+                    </div>
+                    <div class="lesson-item">
+                        <div class="lesson-date">In 2 Days</div>
+                        <div class="lesson-details">
+                            <h3>Japanese: Basic Hiragana Characters</h3>
+                            <p>Duration: 12 minutes | Difficulty: Beginner</p>
+                        </div>
+                        <button class="btn btn-secondary" onclick="alert('Coming soon!')">View</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practice Tab -->
+            <section id="practice" class="tab-content">
+                <h1>Practice Zone</h1>
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h3>🗣️ Speaking Practice</h3>
+                        <p>Speak with AI tutor and improve pronunciation</p>
+                        <button class="btn btn-primary" onclick="startPractice('speaking')">Start Practice</button>
+                    </div>
+                    <div class="practice-card">
+                        <h3>👂 Listening Exercises</h3>
+                        <p>Train your ears with native speaker audio</p>
+                        <button class="btn btn-primary" onclick="startPractice('listening')">Start Practice</button>
+                    </div>
+                    <div class="practice-card">
+                        <h3>✏️ Writing Drills</h3>
+                        <p>Practice writing with instant feedback</p>
+                        <button class="btn btn-primary" onclick="startPractice('writing')">Start Practice</button>
+                    </div>
+                    <div class="practice-card">
+                        <h3>🎯 Vocab Review</h3>
+                        <p>Flashcards and spaced repetition</p>
+                        <button class="btn btn-primary" onclick="startPractice('vocab')">Start Practice</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Tab -->
+            <section id="achievements" class="tab-content">
+                <h1>🏆 Achievements</h1>
+                <div class="achievements-grid">
+                    <div class="achievement-badge earned">
+                        <span>🚀</span>
+                        <p>Quick Learner</p>
+                        <small>Completed 10 lessons</small>
+                    </div>
+                    <div class="achievement-badge earned">
+                        <span>🔥</span>
+                        <p>On Fire</p>
+                        <small>7 day streak</small>
+                    </div>
+                    <div class="achievement-badge earned">
+                        <span>⭐</span>
+                        <p>Perfect Score</p>
+                        <small>100% on 5 quizzes</small>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <span>🌟</span>
+                        <p>Polyglot</p>
+                        <small>Learn 5 languages</small>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <span>🎖️</span>
+                        <p>Master</p>
+                        <small>Complete 100 lessons</small>
+                    </div>
+                    <div class="achievement-badge locked">
+                        <span>👑</span>
+                        <p>Champion</p>
+                        <small>Reach level 50</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Tab -->
+            <section id="statistics" class="tab-content">
+                <h1>📈 Statistics</h1>
+                <div class="stats-detailed">
+                    <div class="stat-box">
+                        <h3>Weekly Activity</h3>
+                        <div class="chart-placeholder">
+                            <p>Activity chart would display here</p>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Learning Time</h3>
+                        <ul class="stat-list">
+                            <li><span>Monday:</span> 45 min</li>
+                            <li><span>Tuesday:</span> 60 min</li>
+                            <li><span>Wednesday:</span> 50 min</li>
+                            <li><span>Thursday:</span> 40 min</li>
+                            <li><span>Friday:</span> 55 min</li>
+                            <li><span>Saturday:</span> 70 min</li>
+                            <li><span>Sunday:</span> 35 min</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Set user info on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserDashboard();
+        });
+    </script>
+</body>
+</html>
